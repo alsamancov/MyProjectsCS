@@ -1,0 +1,10 @@
+C:\MyProjectsCS\Project1\Lib03\Lib03\obj\Debug\ResolveAssemblyReference.cache
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\Lib03.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\Lib03.pdb
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\AcDbMgd.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\AcMgd.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\AcCui.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\AcTcMgd.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\bin\Debug\AdWindows.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\obj\Debug\Lib03.dll
+C:\MyProjectsCS\Project1\Lib03\Lib03\obj\Debug\Lib03.pdb
