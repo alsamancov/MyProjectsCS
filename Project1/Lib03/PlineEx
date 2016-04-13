@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Teigha.Runtime;
+using HostMgd.ApplicationServices;
+using Teigha.DatabaseServices;
+using Teigha.Geometry;
+
+
+namespace PlineEx
+{
+    public class MainClass
+    {
+        [CommandMethod("PlineEx")]
+        public static void PlineEx()
+        {
+            Document nDoc = Application.DocumentManager.MdiActiveDocument;
+            Database nCurDb = nDoc.Database;
+
+            //Start a transaction
+            using (Transaction nTrans = nCurDb.TransactionManager.StartTransaction())
+            {
+                // Open the Block table for read
+                BlockTable nBlockTbl;
+                nBlockTbl =(BlockTable) nTrans.GetObject(nCurDb.BlockTableId, OpenMode.ForRead);
+
+                // Open the Block table record Model space for write
+                BlockTableRecord nBlkTblRec;
+                nBlkTblRec = (BlockTableRecord)nTrans.GetObject(nBlockTbl[BlockTableRecord.ModelSpace], OpenMode.ForWrite);
+
+                // Create a polyline with two segments (3 points)
+                Polyline nPoly = new Polyline();
+                nPoly.SetDatabaseDefaults();
+                nPoly.AddVertexAt(0, new Point2d(2, 4), 0, 0, 0);
+                nPoly.AddVertexAt(1, new Point2d(4, 2), 0, 0, 0);
+                nPoly.AddVertexAt(2, new Point2d(6, 4), 0, 0, 0);
+                
+
+                // Add the new object to the block table record and the transaction
+                nBlkTblRec.AppendEntity(nPoly);
+                nTrans.AddNewlyCreatedDBObject(nPoly, true);
+
+                // Save the new object to the database
+                nTrans.Commit();
+
+            }
+        }
+    }
+}
